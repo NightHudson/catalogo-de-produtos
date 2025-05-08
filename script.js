@@ -1,9 +1,7 @@
-// Substitua com sua URL e chave do Supabase
 const supabaseUrl = 'https://jzoxixunkeipmtvuhkwv.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6b3hpeHVua2VpcG10dnVoa3d2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY2NzU5MjgsImV4cCI6MjA2MjI1MTkyOH0.7Z4rya4gnb12blZTC72BfKYgag9586m1-sfgFP9wSf8'; // mantenha sua chave completa aqui
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-// Função para formatar preço em R$
 function formataPreco(preco) {
   return preco.toLocaleString('pt-BR', {
     style: 'currency',
@@ -11,7 +9,6 @@ function formataPreco(preco) {
   });
 }
 
-// Renderiza os produtos na tela
 async function renderizarProdutos() {
   const container = document.getElementById('produtos');
   container.innerHTML = '';
@@ -68,7 +65,6 @@ async function renderizarProdutos() {
   });
 }
 
-// Aplica 10% de desconto aos produtos sem desconto
 async function aplicarDesconto() {
   const { data: produtos, error } = await supabase.from('produtos').select('*');
 
